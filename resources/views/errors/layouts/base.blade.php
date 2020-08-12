@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <script src="https://kit.fontawesome.com/64bc6b4e38.js" crossorigin="anonymous"></script>
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -63,6 +63,6 @@
             </v-bottom-navigation>
         </v-app>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
 </body>
 </html>

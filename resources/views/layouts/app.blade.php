@@ -31,7 +31,7 @@ twitter card image -->
 
 
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
 @notifyCss
 </head>
 <body>
@@ -102,7 +102,7 @@ twitter card image -->
             </v-bottom-navigation>
         </v-app>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
     @include('notify::messages')
     @notifyJs
 </body>

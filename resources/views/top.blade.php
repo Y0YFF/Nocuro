@@ -11,6 +11,10 @@
 @endsection
 
 @section('main')
+<div id="top-image-wrap">
+    <img src="{{ asset('images/top.jpg') }}" alt="top_icon" id="top-image">
+</div>
+<h2 id="top-title">ネット教材収集サービス</h2>
 <div id="search-wrap">
     <div id="search-description">あなたの探したいキーワードを入力してください</div>
     <div id="search-bar-wrap">

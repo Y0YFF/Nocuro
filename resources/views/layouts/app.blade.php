@@ -30,7 +30,7 @@ twitter card image -->
                 <div class="mx-auto w-100" id="top-bar-wrap">
                     <a href="{{ route('top') }}" id="top-bar-left">
                         <h1 id="site-title">Nocuro</h1>
-                        <h2 id="site-sub-title">(ノクロ)</h2>
+                        <h2 id="site-sub-title">(ノクロ)-ネット教材収集サービス-</h2>
                     </a>
                     @if(Auth::guard('admin')->check())
                     <div id="top-bar-right">

@@ -123,6 +123,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'maintenance_ip' => env('MAINTENANCE_IP'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

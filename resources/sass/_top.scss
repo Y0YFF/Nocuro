@@ -1,0 +1,16 @@
+
+#search-wrap {
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 30px;
+}
+
+#courses-items-list {
+  
+  @include course-item;
+
+  #pagination-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

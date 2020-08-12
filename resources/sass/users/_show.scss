@@ -1,0 +1,49 @@
+
+#user-header-wrap {
+  #name-wrap {
+    #name-text {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  #account-id-wrap {
+    #account-id-text {
+      color: #aaa;
+    }
+  }
+}
+
+#user-progresses-wrap {
+  .course-item {
+    margin-top: 15px;
+
+    .course-title {
+      font-weight: 600;
+      color: rgba(0,0,0,.87);
+    }
+
+    .lesson-progress {
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      .progress-text {
+        color: white;
+      }
+    }
+  }
+}
+
+#user-bookmark-wrap {
+  #bookmark-title {
+    font-weight: 600;
+
+    #bookmark-icon {
+      color: #FFC107;
+    }
+  }
+
+  #bookmarks-wrap {
+    @include course-item;
+  }
+}

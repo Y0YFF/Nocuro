@@ -1,0 +1,33 @@
+
+#popular-courses-title-wrap {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #aaa;
+  display: flex;
+  justify-content: space-between;
+
+  #form-title-text {
+    font-weight: 600;
+  }
+
+  #add-popular-courses-button-wrap {
+    #add-popular-courses-button {
+      cursor: pointer;
+    }
+  }
+}
+
+#popular-courses-items-list {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #aaa;
+
+  @include course-item;
+}
+
+#create-courses-button {
+  margin-top: 30px;
+
+  #create-button {
+    background: #2196F3;
+    color: white;
+  }
+}

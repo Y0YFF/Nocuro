@@ -1,0 +1,117 @@
+
+#course-header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #aaa;
+
+  #course-date-wrap {
+    color: #aaa;
+  }
+
+  #course-title-wrap {
+    height: 40px;
+    font-size: 25px;
+    font-weight: 700;
+
+    #course-title-text {
+      color:rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  #course-tag-wrap {
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+  }
+
+  #course-button-wrap {
+    display: flex;
+
+    #bookmark-button-wrap {
+      flex: 1;
+
+      #bookmark-button-active {
+        display: block;
+        background: #FFC107;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+      }
+
+      #bookmark-button-non-active {
+        display: block;
+        background: white;
+        color: #FFC107;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #FFC107;
+        border-radius: 5px;
+      }
+
+    }
+
+    #twitter-button-wrap {
+      flex: 1;
+
+      #twitter-button {
+        display: block;
+        background: white;
+        color: #1DA1F2;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #1DA1F2;
+        border-radius: 5px;
+      }
+    }
+
+  }
+
+  #course-delete-button-wrap {
+    #delete-button {
+      display: block;
+      text-align: center;
+      color: red;
+      border: 1px solid red;
+      padding: 5px;
+    }
+  }
+}
+
+#course-main {
+  #course-progress-wrap {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    #progress-text {
+      color: white;
+    }
+  }
+
+  .course-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  .lesson-title-wrap {
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .lesson-title-text {
+      color:rgba(0, 0, 0, 0.87)
+    }
+  }
+
+  .check-button-wrap {
+    .check-button {
+      border: 1px solid #aaa;
+      padding: 5px;
+      border-radius: 5px;
+      background: #f5f5f5;
+    }
+
+  }
+}

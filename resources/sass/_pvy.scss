@@ -1,0 +1,28 @@
+
+#content {
+  
+  #content-wrap {
+
+    #content-title {
+      border-bottom: 1px solid gray;
+      padding-bottom: 10px;
+      display: flex;
+      margin-bottom: 30px;
+      align-items: center;
+
+      #title-text {
+        font-weight: 700;
+      }
+
+    }
+
+    #content-body {
+      
+      .pvy-title, .trm-title {
+        font-weight: 600;
+      }
+    }
+
+  }
+
+}

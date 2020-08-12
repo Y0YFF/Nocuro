@@ -1,0 +1,43 @@
+
+@mixin course-item {
+  .course-item {
+    margin-top: 15px;
+    padding: 15px;
+
+    .item-description {
+      display: flex;
+      align-items: center;
+      color: #aaa;
+      line-height: 15px;
+
+      .item-date {
+        font-size: 10px;
+      }
+
+      .item-icon-wrap {
+        margin-left: auto;
+        font-size: 10px;
+      }
+    }
+
+    .item-main {
+      height: 20px;
+
+      .item-title {
+        font-size: 15px;
+        font-weight: 600;
+
+        a {
+          color: rgba(0, 0, 0, 0.87);
+        }
+      }
+    }
+
+    .item-tags {
+      .tag-text {
+        font-size: 13px;
+      }
+
+    }
+  }
+}

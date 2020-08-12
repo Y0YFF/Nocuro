@@ -19,6 +19,17 @@ twitter card image -->
 <link rel="shortcut icon" href="/favicon.ico">
 <script src="https://kit.fontawesome.com/64bc6b4e38.js" crossorigin="anonymous"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135763173-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135763173-2');
+</script>
+
+
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @notifyCss

@@ -53,7 +53,7 @@
     @if(!Auth::guard('web')->check())
     @foreach($course->lessons as $lesson)
     <v-card class="course-item" outlined>
-        <div class="lesson-title-wrap">
+        <div class="lesson-title-wrap" style="flex: 1;">
             <a href="{{ $lesson->link }}" class="lesson-title-text" target="_blank" rel="noopener noreferrer">{{ $lesson->title }}</a>
         </div>
         <div class="check-button-wrap">

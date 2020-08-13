@@ -56,7 +56,7 @@ export default {
             let data = {
                 'authId': this.authId,
                 'courseId': this.courseId,
-                'progress': progress,
+                'checkedCount': this.count,
             };
 
             axios.post('/lessons/' + lesson.id + '/check', data)

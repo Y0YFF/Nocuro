@@ -23,8 +23,8 @@
     @forelse($user->courses as $course)
     <div class="course-item">
         <a href="{{ route('courses.show', $course) }}" class="course-title">{{ $course->title }}:</a>
-        <v-progress-linear value="{{ $course->pivot->progress }}" height="30" striped rounded class="lesson-progress">
-            <strong class="progress-text">{{ $course->pivot->progress }}%</strong>
+        <v-progress-linear value="{{ $course->progress }}" height="30" striped rounded class="lesson-progress">
+            <strong class="progress-text">{{ $course->progress }}%</strong>
         </v-progress-linear>
     </div>
     @empty

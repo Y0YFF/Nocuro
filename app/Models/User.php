@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany('App\Models\Course')->withPivot('progress');
+        return $this->belongsToMany('App\Models\Course')->withPivot('checked_count');
     }
 
     public function bookmark_courses()

@@ -12,7 +12,7 @@ class LessonController extends Controller
     {
         $auth_id = $request->authId;
         $course_id = $request->courseId;
-        $progress = $request->progress;
+        $checked_count = $request->checkedCount;
 
         $lesson = LessonUser::where('user_id', $auth_id)
         ->where('lesson_id', $lesson_id)
@@ -25,7 +25,7 @@ class LessonController extends Controller
         if ($course_user) {
 
             $course_user->fill([
-                'progress' => $progress
+                'checked_count' => $checked_count
             ])->save();
 
         } else {
@@ -33,7 +33,7 @@ class LessonController extends Controller
             CourseUser::create([
                 'user_id' => $auth_id,
                 'course_id' => $course_id,
-                'progress' => $progress,
+                'checked_count' => $checked_count,
             ]);
 
         }

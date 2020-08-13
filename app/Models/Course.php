@@ -40,11 +40,24 @@ class Course extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\Models\User')->withPivot('pregress');
+        return $this->belongsToMany('App\Models\User')->withPivot('checked_count');
     }
 
     public function bookmark_user()
     {
         return $this->belongsToMany('App\Models\User', 'bookmarks');
     }
+
+    public function getProgressAttribute()
+    {
+        $checked_count = $this->pivot->checked_count;
+
+        $lessons_count = $this->lessons()->count();
+
+        $progress = floor(($checked_count / $lessons_count) * 100);
+
+        return $progress;
+
+    }
+
 }

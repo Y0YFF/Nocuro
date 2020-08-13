@@ -1959,7 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         'authId': this.authId,
         'courseId': this.courseId,
-        'progress': progress
+        'checkedCount': this.count
       };
       axios.post('/lessons/' + lesson.id + '/check', data).then(function (response) {
         console.log(response);

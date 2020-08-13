@@ -20,6 +20,8 @@ class Course extends Model
 
     public $incrementing = false;
 
+    protected $keyType = 'string';
+
     protected $fillable = [
       'title', 'link', 'bookmark_count'
     ];

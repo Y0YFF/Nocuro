@@ -14,7 +14,7 @@ class AddColumnCheckedCountCourseUserTable extends Migration
     public function up()
     {
         Schema::table('course_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('checked_count')->after('user_id');
+            $table->unsignedBigInteger('checked_count')->after('user_id')->default(0);
         });
     }
 

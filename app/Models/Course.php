@@ -22,6 +22,8 @@ class Course extends Model
 
     protected $keyType = 'string';
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
       'title', 'link', 'bookmark_count'
     ];

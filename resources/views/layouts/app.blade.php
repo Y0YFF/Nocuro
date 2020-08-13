@@ -32,7 +32,9 @@ twitter card image -->
 
 <!-- Styles -->
 <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
-@notifyCss
+<noscript><link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}"></noscript>
+<link rel="preload" href="https://www.nocuro.net/vendor/mckenziearts/laravel-notify/css/notify.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://www.nocuro.net/vendor/mckenziearts/laravel-notify/css/notify.css"></noscript>
 </head>
 <body>
     <div id="app">

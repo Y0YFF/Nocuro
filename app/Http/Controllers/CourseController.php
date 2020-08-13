@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Courses\StoreRequest;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Bookmark;
 use App\Models\LessonUser;
 use App\Models\CourseUser;

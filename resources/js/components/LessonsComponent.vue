@@ -39,6 +39,8 @@ export default {
     methods: {
         check: function(lesson) {
 
+            let beforeProgress = Math.floor((this.count / this.lessons.length) * 100);
+
             if (lesson.checked) {
 
                 lesson.checked = false
@@ -51,12 +53,16 @@ export default {
 
             }
 
-            let progress = Math.floor((this.count / this.lessons.length) * 100);
+            let afterProgress = Math.floor((this.count / this.lessons.length) * 100);
+
+            this.progress = afterProgress;
 
             let data = {
                 'authId': this.authId,
                 'courseId': this.courseId,
                 'checkedCount': this.count,
+                'beforeProgress': beforeProgress,
+                'afterProgress': afterProgress,
             };
 
             axios.post('/lessons/' + lesson.id + '/check', data)
@@ -67,7 +73,6 @@ export default {
                 console.log(error);
             });
 
-            this.progress = progress;
         },
         calcProgress: function () {
             

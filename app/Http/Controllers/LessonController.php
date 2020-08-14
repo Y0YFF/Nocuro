@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseUser;
 use Illuminate\Http\Request;
 use App\Models\LessonUser;
+use App\Models\User;
 
 class LessonController extends Controller
 {
@@ -13,6 +14,10 @@ class LessonController extends Controller
         $auth_id = $request->authId;
         $course_id = $request->courseId;
         $checked_count = $request->checkedCount;
+        $before_progress = $request->beforeProgress;
+        $after_progress = $request->afterProgress;
+
+        $user = User::where('id', $auth_id)->first();
 
         $lesson = LessonUser::where('user_id', $auth_id)
         ->where('lesson_id', $lesson_id)
@@ -21,6 +26,26 @@ class LessonController extends Controller
         $course_user = CourseUser::where('user_id', $auth_id)
         ->where('course_id', $course_id)
         ->first();
+
+        if ($before_progress === 100) {
+
+            $completed_course_count = $user->userinfo->completed_course_count - 1;
+
+            $user->userinfo->fill([
+                'completed_course_count' => $completed_course_count,
+            ])->save();
+
+        }
+
+        if ($after_progress === 100) {
+
+            $completed_course_count = $user->userinfo->completed_course_count + 1;
+
+            $user->userinfo->fill([
+                'completed_course_count' => $completed_course_count,
+            ])->save();
+            
+        }
 
         if ($course_user) {
 

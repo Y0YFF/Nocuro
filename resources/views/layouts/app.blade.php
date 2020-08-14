@@ -85,7 +85,7 @@ twitter card image -->
                     </span>
                 </div>
             </v-footer>
-            <v-bottom-navigation background-color="#009688" grow id="navigation-wrap">
+            <v-bottom-navigation background-color="#009688" grow id="navigation-wrap" fixed>
                 <v-btn href="{{ route('courses.index') }}" class="nav-button">
                     <span class="nav-button-text">ホーム</span>
                     <v-icon class="nav-button-icon">fas fa-home</v-icon>

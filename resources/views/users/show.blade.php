@@ -17,11 +17,16 @@
     <div id="account-id-wrap">
         <span id="account-id-text">{{ '@' . $user->account_id }}</span>
     </div>
+    <div id="completed-course-count-wrap">
+        修了数:<i class="fas fa-star complete-icon"></i>
+        {{ $user->userinfo->completed_course_count }}
+    </div>
 </div>
 <hr>
 <div id="user-progresses-wrap">
     @forelse($user->courses as $course)
     <div class="course-item">
+        <i class="fas fa-star complete-icon"></i>
         <a href="{{ route('courses.show', $course) }}" class="course-title">{{ $course->title }}:</a>
         <v-progress-linear value="{{ $course->progress }}" height="30" striped rounded class="lesson-progress">
             <strong class="progress-text">{{ $course->progress }}%</strong>
@@ -36,7 +41,7 @@
 <hr>
 <div id="user-bookmark-wrap">
     <div id="bookmark-title">
-        <i class="fas fa-star" id="bookmark-icon"></i>
+        <i class="fas fa-bookmark" id="bookmark-icon"></i>
         お気に入り
     </div>
     <div id="bookmarks-wrap">
@@ -45,7 +50,7 @@
             <div class="item-description">
                 <div class="item-date">{{ $course->created_at }}</div>
                 <div class="item-icon-wrap">
-                    <i class="far fa-star"></i>
+                    <i class="fas fa-bookmark"></i>
                     {{ $course->bookmark_count }}
                 </div>
             </div>

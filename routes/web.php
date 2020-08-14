@@ -40,9 +40,13 @@ Route::get('/users/{user}', 'UserController@show')->name('users.show');
 
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/login/twitter', 'Auth\SocialAccountController@redirectToProvider')->name('twitter.auth');
 Route::get('/login/twitter/callback', 'Auth\SocialAccountController@handleProviderCallback')->name('twitter.oauthCallback');
+
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/admin', 'AdminController@index')->name('admins.index');
 Route::post('/admin/popular', 'AdminController@addPopularCourse')->name('admins.addPopularCourse');

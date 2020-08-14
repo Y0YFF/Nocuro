@@ -11139,8 +11139,16 @@ a.text-dark:focus {
   color: #aaa;
 }
 
+#user-header-wrap #completed-course-count-wrap .complete-icon {
+  color: #FFC107;
+}
+
 #user-progresses-wrap .course-item {
   margin-top: 15px;
+}
+
+#user-progresses-wrap .course-item .complete-icon {
+  color: #FFC107;
 }
 
 #user-progresses-wrap .course-item .course-title {

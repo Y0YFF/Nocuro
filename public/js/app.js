@@ -2022,6 +2022,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     check: function check(lesson) {
+      var beforeProgress = Math.floor(this.count / this.lessons.length * 100);
+
       if (lesson.checked) {
         lesson.checked = false;
         this.count--;
@@ -2030,18 +2032,20 @@ __webpack_require__.r(__webpack_exports__);
         this.count++;
       }
 
-      var progress = Math.floor(this.count / this.lessons.length * 100);
+      var afterProgress = Math.floor(this.count / this.lessons.length * 100);
+      this.progress = afterProgress;
       var data = {
         'authId': this.authId,
         'courseId': this.courseId,
-        'checkedCount': this.count
+        'checkedCount': this.count,
+        'beforeProgress': beforeProgress,
+        'afterProgress': afterProgress
       };
       axios.post('/lessons/' + lesson.id + '/check', data).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
         console.log(error);
       });
-      this.progress = progress;
     },
     calcProgress: function calcProgress() {
       var percent = this.count / this.lessons.length * 100;

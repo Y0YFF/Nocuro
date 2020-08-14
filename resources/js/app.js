@@ -24,6 +24,11 @@ Vue.use(Vuetify);
 
 Vue.component('lessons-form', require('./components/LessonsFormComponent.vue').default);
 Vue.component('lessons', require('./components/LessonsComponent.vue').default);
+Vue.component('name-input', require('./components/NameInputComponent.vue').default);
+Vue.component('email-input', require('./components/EmailInputComponent.vue').default);
+Vue.component('account-id-input', require('./components/AccountIdInputComponent.vue').default);
+Vue.component('password-input', require('./components/PasswordInputComponent.vue').default);
+Vue.component('password-confirmation-input', require('./components/PasswordConfirmationInputComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

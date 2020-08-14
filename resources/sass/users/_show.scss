@@ -12,11 +12,21 @@
       color: #aaa;
     }
   }
+
+  #completed-course-count-wrap {
+    .complete-icon {
+      color: #FFC107;
+    }
+  }
 }
 
 #user-progresses-wrap {
   .course-item {
     margin-top: 15px;
+
+    .complete-icon {
+      color: #FFC107;
+    }
 
     .course-title {
       font-weight: 600;

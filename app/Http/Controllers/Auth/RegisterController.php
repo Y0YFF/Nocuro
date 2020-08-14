@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use \Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -50,9 +51,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'between:2,30'],
+            'account_id' => ['required', 'string', 'between:4,15', 'regex:/^[a-zA-Z0-9_]+$/','unique:users,account_id',],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'between: 6,20', 'confirmed'],
         ]);
     }
 
@@ -66,8 +68,21 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'account_id' => $data['account_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        notify()->success('登録しました', '成功');
+
+        return redirect()->route('courses.index');
     }
 }

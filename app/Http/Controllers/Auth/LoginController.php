@@ -93,4 +93,21 @@ class LoginController extends Controller
             ->route('courses.index');
         
     }
+
+    public function username()
+    {
+        return 'account_id';
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        notify()->success('ログインしました', '成功');
+        
+        if (session()->has('url.intended')) {
+            return redirect(session('url.intended'));
+        }
+
+        return redirect()
+            ->route('courses.index');
+    }
 }

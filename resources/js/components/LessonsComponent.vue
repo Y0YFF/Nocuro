@@ -18,7 +18,19 @@
                     <span v-else>未完了</span>
                 </button>
             </div>
-      </v-card>
+        </v-card>
+        <v-dialog
+        v-model="dialog"
+        max-width="400">
+            <v-card>
+                <v-card-title class="headline">コースを修了しました！</v-card-title>
+                <v-card-text>
+                    お疲れ様です！<br>
+                    今の気持ちやNocuroの感想をぜひTwitterでつぶやいてください！<br>
+                </v-card-text>
+
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -34,6 +46,7 @@ export default {
         return {
             progress: 0,
             count: this.checkedCount,
+            dialog: false,
         }
     },
     methods: {
@@ -56,6 +69,10 @@ export default {
             let afterProgress = Math.floor((this.count / this.lessons.length) * 100);
 
             this.progress = afterProgress;
+
+            if (afterProgress === 100) {
+                this.dialog = true;
+            }
 
             let data = {
                 'authId': this.authId,

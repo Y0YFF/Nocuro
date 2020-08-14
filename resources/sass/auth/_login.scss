@@ -1,17 +1,54 @@
 
-#form-title-wrap {
+#form-header-wrap {
   padding-bottom: 5px;
   border-bottom: 1px solid #aaa;
 
-  #form-title-text {
-    font-weight: 600;
+  #title-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    #login-text-wrap {
+      #login-text {
+        font-weight: 600;
+        a {
+          color: #aaa;
+        }
+      }
+    }
+
+    #register-text-wrap {
+      #register-text {
+        font-weight: 600;
+        a {
+          color: #aaa;
+        }
+      }
+    }
+  }
+
+  #twitter-login-wrap {
+    text-align: center;
   }
 }
 
 #form-description-wrap {
   margin-top: 30px;
+  border: 1px solid #4caf50;
+  padding: 10px;
+  color: #4caf50;
+  text-align: center;
 }
 
-#form-button-wrap {
+#form-main-wrap {
   margin-top: 30px;
+
+  .errors-wrap {
+    .error-text {
+      color: red;
+    }
+  }
+
+  #submit-button {
+    color: white;
+  }
 }

@@ -29,13 +29,13 @@
                 <form id="bookmark-form" action="{{ route('courses.bookmark', $course) }}" method="POST">
                     @csrf
                 </form>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-bookmark"></i>
                 お気に入り
                 {{ $course->bookmark_count }}
             </a>
             @else
             <div id="bookmark-button-non-active">
-                <i class="fas fa-star"></i>
+                <i class="fas fa-bookmark"></i>
                 お気に入り
                 {{ $course->bookmark_count }}
             </div>

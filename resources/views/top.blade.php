@@ -29,7 +29,7 @@
         <div class="item-description">
             <div class="item-date">{{ $popular_course->course->created_at }}</div>
             <div class="item-icon-wrap">
-                <i class="far fa-star"></i>
+                <i class="fas fa-bookmark"></i>
                 {{ $popular_course->course->bookmark_count }}
             </div>
         </div>

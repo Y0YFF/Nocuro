@@ -24,7 +24,7 @@
         <div class="item-description">
             <div class="item-date">{{ $course->created_at }}</div>
             <div class="item-icon-wrap">
-                <i class="far fa-star"></i>
+                <i class="fas fa-bookmark"></i>
                 {{ $course->bookmark_count }}
             </div>
         </div>

@@ -63,6 +63,10 @@ class SocialAccountService
                     'password' => null,
                 ]);
 
+                $user->userinfo()->create([
+                    'completed_course_count' => 0,
+                ]);
+
                 $user->accounts()->create([
                     'provider_id'   => $providerUser->getId(),
                     'provider_name' => $providerName,
@@ -70,11 +74,11 @@ class SocialAccountService
 
             } catch (\Exception $e) {
 
+                notify()->error('ログインに失敗しました', '失敗');
+                
                 return redirect()
                     ->route('login');
 
-                notify()->error('ログインに失敗しました', '失敗');
-                    
             }
 
             return $user;

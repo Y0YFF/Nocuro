@@ -1,77 +1,50 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('title')
+登録 | {{ config('app.name') }}-ネット教材収集サービス-
+@endsection
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+@section('meta')
+<meta property="og:url" content="{{ route('register') }}"/>
+<meta property="og:title" content="登録 | {{ config('app.name') }}-ネット教材収集サービス-"/>
+@endsection
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+@section('main')
+<div id="form-header-wrap">
+    <div id="title-wrap">
+        <div id="register-text-wrap">
+            <span id="register-text">
+                登録
+            </span>
+        </div>
+        <div id="login-text-wrap">
+            <span id="login-text">
+                <a href="{{ route('login') }}">ログイン</a>
+            </span>
         </div>
     </div>
+    <div id="twitter-login-wrap">
+        <a href="{{ route('twitter.auth') }}">
+            <i class="fab fa-twitter"></i>
+            Twitterで登録
+        </a>
+    </div>
+</div>
+<div id="form-description-wrap">
+    <i class="far fa-check-circle" id="description-icon"></i>
+    <span id="description-text">
+        ログインすると進捗管理できます
+    </span>
+</div>
+<div id="form-main-wrap">
+    <form action="{{ route('register') }}" method="POST">
+        @csrf
+        <name-input old-value="{{ old('name') }}" :errors="{{ $errors }}"></name-input>
+        <account-id-input old-value="{{ old('account_id') }}" :errors="{{ $errors }}" placeholder="4文字以上15文字以下の半角英数字"></account-id-input>
+        <email-input old-value="{{ old ('email') }}" :errors="{{ $errors }}"></email-input>
+        <password-input :errors="{{ $errors }}" placeholder="6文字以上20文字以下の半角英数字"></password-input>
+        <password-confirmation-input></password-confirmation-input>
+        <v-btn block color="#2196F3" type="submit" id="submit-button">登録</v-btn>
+    </form>
 </div>
 @endsection

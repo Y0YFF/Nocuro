@@ -2007,6 +2007,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     lessons: Array,
@@ -2017,7 +2029,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       progress: 0,
-      count: this.checkedCount
+      count: this.checkedCount,
+      dialog: false
     };
   },
   methods: {
@@ -2034,6 +2047,11 @@ __webpack_require__.r(__webpack_exports__);
 
       var afterProgress = Math.floor(this.count / this.lessons.length * 100);
       this.progress = afterProgress;
+
+      if (afterProgress === 100) {
+        this.dialog = true;
+      }
+
       var data = {
         'authId': this.authId,
         'courseId': this.courseId,
@@ -38617,7 +38635,42 @@ var render = function() {
             ])
           ]
         )
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { "max-width": "400" },
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline" }, [
+                _vm._v("コースを修了しました！")
+              ]),
+              _vm._v(" "),
+              _c("v-card-text", [
+                _vm._v("\n                お疲れ様です！"),
+                _c("br"),
+                _vm._v(
+                  "\n                今の気持ちやNocuroの感想をぜひTwitterでつぶやいてください！"
+                ),
+                _c("br")
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     2
   )

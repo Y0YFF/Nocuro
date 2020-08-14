@@ -11203,21 +11203,54 @@ a.text-dark:focus {
   font-size: 13px;
 }
 
-#form-title-wrap {
+#form-header-wrap {
   padding-bottom: 5px;
   border-bottom: 1px solid #aaa;
 }
 
-#form-title-wrap #form-title-text {
+#form-header-wrap #title-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-header-wrap #title-wrap #login-text-wrap #login-text {
   font-weight: 600;
+}
+
+#form-header-wrap #title-wrap #login-text-wrap #login-text a {
+  color: #aaa;
+}
+
+#form-header-wrap #title-wrap #register-text-wrap #register-text {
+  font-weight: 600;
+}
+
+#form-header-wrap #title-wrap #register-text-wrap #register-text a {
+  color: #aaa;
+}
+
+#form-header-wrap #twitter-login-wrap {
+  text-align: center;
 }
 
 #form-description-wrap {
   margin-top: 30px;
+  border: 1px solid #4caf50;
+  padding: 10px;
+  color: #4caf50;
+  text-align: center;
 }
 
-#form-button-wrap {
+#form-main-wrap {
   margin-top: 30px;
+}
+
+#form-main-wrap .errors-wrap .error-text {
+  color: red;
+}
+
+#form-main-wrap #submit-button {
+  color: white;
 }
 
 #popular-courses-title-wrap {

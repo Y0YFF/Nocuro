@@ -10,7 +10,6 @@ use App\Models\Bookmark;
 use App\Models\LessonUser;
 use App\Models\CourseUser;
 use Illuminate\Support\Facades\Auth;
-use PHPUnit\Framework\Constraint\LessThan;
 
 class CourseController extends Controller
 {

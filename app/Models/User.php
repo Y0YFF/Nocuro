@@ -57,4 +57,9 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Course', 'bookmarks');
     }
 
+    public function userinfo()
+    {
+        return $this->hasOne('App\Models\Userinfo');
+    }
+
 }

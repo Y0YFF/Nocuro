@@ -23,7 +23,10 @@
         v-model="dialog"
         max-width="400">
             <v-card>
-                <v-card-title class="headline">コースを修了しました！</v-card-title>
+                <v-card-title class="headline" style="font-weight:700;">
+                    <i class="fas fa-star" style="color:#FFC107;"></i>
+                    コースを修了しました！
+                </v-card-title>
                 <v-card-text>
                     お疲れ様です！<br>
                     今の気持ちやNocuroの感想をぜひTwitterでつぶやいてください！<br>

@@ -11105,24 +11105,24 @@ a.text-dark:focus {
   padding: 15px;
 }
 
-#course-main .lesson-title-wrap {
+#course-main .course-item .lesson-title-wrap {
   font-weight: 600;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-#course-main .lesson-title-wrap .lesson-title-text {
+#course-main .course-item .lesson-title-wrap .lesson-title-text {
   color: rgba(0, 0, 0, 0.87);
 }
 
-#course-main .check-button-wrap {
+#course-main .course-item .check-button-wrap {
   width: 70px;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-#course-main .check-button-wrap .check-button {
+#course-main .course-item .check-button-wrap .check-button {
   border: 1px solid #aaa;
   padding: 5px;
   border-radius: 5px;

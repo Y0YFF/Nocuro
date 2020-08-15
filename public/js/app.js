@@ -2019,6 +2019,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     lessons: Array,
@@ -38653,9 +38656,22 @@ var render = function() {
           _c(
             "v-card",
             [
-              _c("v-card-title", { staticClass: "headline" }, [
-                _vm._v("コースを修了しました！")
-              ]),
+              _c(
+                "v-card-title",
+                {
+                  staticClass: "headline",
+                  staticStyle: { "font-weight": "700" }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fas fa-star",
+                    staticStyle: { color: "#FFC107" }
+                  }),
+                  _vm._v(
+                    "\n                コースを修了しました！\n            "
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c("v-card-text", [
                 _vm._v("\n                お疲れ様です！"),

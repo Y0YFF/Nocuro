@@ -74,10 +74,7 @@ class SocialAccountService
 
             } catch (\Exception $e) {
 
-                notify()->error('ログインに失敗しました', '失敗');
-                
-                return redirect()
-                    ->route('login');
+                $user = null;
 
             }
 

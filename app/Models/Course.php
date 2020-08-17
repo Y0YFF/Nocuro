@@ -54,7 +54,7 @@ class Course extends Model
 
         $lessons_count = $this->lessons()->count();
 
-        $progress = floor(($checked_count / $lessons_count) * 100);
+        $progress = intval(floor(($checked_count / $lessons_count) * 100));
 
         return $progress;
 

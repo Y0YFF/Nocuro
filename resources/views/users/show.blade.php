@@ -26,7 +26,9 @@
 <div id="user-progresses-wrap">
     @forelse($user->courses as $course)
     <div class="course-item">
+        @if($course->progress == 100)
         <i class="fas fa-star complete-icon"></i>
+        @endif
         <a href="{{ route('courses.show', $course) }}" class="course-title">{{ $course->title }}:</a>
         <v-progress-linear value="{{ $course->progress }}" height="30" striped rounded class="lesson-progress">
             <strong class="progress-text">{{ $course->progress }}%</strong>

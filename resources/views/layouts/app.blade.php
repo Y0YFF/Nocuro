@@ -7,8 +7,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:creator" content="@Y0YFF"/>
 <meta property="og:image" content="{{ asset('images/nocuro.jpeg') }}"/>
-<!-- TODO
-twitter card image -->
+
 @yield('meta')
 
 <!-- CSRF Token -->

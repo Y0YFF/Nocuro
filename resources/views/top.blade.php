@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-トップ | {{ config('app.name') }}-ネット教材収集サービス-
+{{ config('app.name') }}-ネット教材収集サービス-
 @endsection
 
 @section('meta')

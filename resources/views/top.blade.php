@@ -5,7 +5,7 @@
 @endsection
 
 @section('meta')
-<meta name="description" content="{{ condig('app.name') }}はネット上の無料の教材を集めて進捗管理するサービスです">
+<meta name="description" content="{{ config('app.name') }}はネット上の無料の教材を集めて進捗管理するサービスです">
 <meta property="og:url" content="{{ route('top') }}"/>
 <meta property="og:title" content="トップ | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 <meta property="og:description" content="Nocuroはネット上の無料の教材を集めて進捗管理をするサービスです"/>

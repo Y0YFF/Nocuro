@@ -1,7 +1,7 @@
 @extends('errors.layouts.base')
 
 @section('title')
-400エラー | {{ config('app.name') }}-ネット教材収集サービス-
+400エラー | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('message_title')

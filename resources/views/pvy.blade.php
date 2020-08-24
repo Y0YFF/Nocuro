@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-プライバシーポリシー | {{ config('app.name') }}-ネット教材収集サービス-
+プライバシーポリシー | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta property="og:url" content="{{ route('pvy') }}"/>
-<meta property="og:title" content="プライバシーポリシー | {{ config('app.name') }}-ネット教材収集サービス-"/>
+<meta property="og:title" content="プライバシーポリシー | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 @endsection
 
 @section('main')

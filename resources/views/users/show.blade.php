@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-ユーザーページ | {{ config('app.name') }}-ネット教材収集サービス-
+ユーザーページ | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta property="og:url" content="{{ route('users.show', $user) }}"/>
-<meta property="og:title" content="{{ $user->name }} | {{ config('app.name') }}-ネット教材収集サービス-"/>
+<meta property="og:title" content="{{ $user->name }} | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 @endsection
 
 @section('main')

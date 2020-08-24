@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-コース作成 | {{ config('app.name') }}-ネット教材収集サービス-
+コース作成 | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('main')

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $course->title }}の編集 | {{ config('app.name') }}-ネット教材収集サービス-
+{{ $course->title }}の編集 | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('main')

@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('title')
-{{ config('app.name') }}-ネット教材収集サービス-
+{{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta name="description" content="{{ condig('app.name') }}はネット上の無料の教材を集めて進捗管理するサービスです">
 <meta property="og:url" content="{{ route('top') }}"/>
-<meta property="og:title" content="トップ | {{ config('app.name') }}-ネット教材収集サービス-"/>
-<meta property="og:description" content="Nocuroはネット上の有用な教材を集めて、進捗管理をするサービスです"/>
+<meta property="og:title" content="トップ | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
+<meta property="og:description" content="Nocuroはネット上の無料の教材を集めて進捗管理をするサービスです"/>
 @endsection
 
 @section('main')
 <div id="top-image-wrap">
     <img src="{{ asset('images/top.jpg') }}" alt="top_icon" id="top-image">
 </div>
-<h2 id="top-title">ネット教材収集サービス</h2>
+<h2 id="top-title">ネット無料教材収集サービス</h2>
 <div id="search-wrap">
     <div id="search-description">あなたの探したいキーワードを入力してください</div>
     <div id="search-bar-wrap">

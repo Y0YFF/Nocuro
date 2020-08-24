@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $course->title }} | {{ config('app.name') }}-ネット教材収集サービス-
+{{ $course->title }} | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta property="og:url" content="{{ route('courses.show', $course) }}"/>
-<meta property="og:title" content="{{ $course->title }} | {{ config('app.name') }}-ネット教材収集サービス-"/>
+<meta property="og:title" content="{{ $course->title }} | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 @endsection
 
 @section('main')

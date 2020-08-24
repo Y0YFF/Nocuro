@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-利用規約 | {{ config('app.name') }}-ネット教材収集サービス-
+利用規約 | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta property="og:url" content="{{ route('trm') }}"/>
-<meta property="og:title" content="利用規約 | {{ config('app.name') }}-ネット教材収集サービス-"/>
+<meta property="og:title" content="利用規約 | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 @endsection
 
 @section('main')

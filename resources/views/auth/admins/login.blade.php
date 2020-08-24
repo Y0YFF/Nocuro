@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-管理者ログイン | {{ config('app.name') }}-ネット教材収集サービス-
+管理者ログイン | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('main')

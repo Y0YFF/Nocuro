@@ -44,26 +44,24 @@
                         <h1 id="site-title">Nocuro</h1>
                         <h2 id="site-sub-title">(ノクロ)</h2>
                     </a>
+                    <div id="top-bar-right">
                     @if(Auth::guard('admin')->check())
-                    <div id="top-bar-right">
-                        <a href="{{ route('admins.logout') }}" onclick="event.preventDefault();document.getElementById('logout-admin-form').submit();" id="auth-text">管理者ログアウト</a>
-                        <form id="logout-admin-form" action="{{ route('admins.logout') }}" method="POST">
-                            @csrf
-                        </form>
-                    </div>
-                    @endif
-                    @if(!Auth::guard('web')->check())
-                    <div id="top-bar-right">
-                        <a href="{{ route('login') }}" id="auth-text">ログイン</a>
-                    </div>
+                    <a href="{{ route('admins.logout') }}" onclick="event.preventDefault();document.getElementById('logout-admin-form').submit();" id="auth-text">管理者ログアウト</a>
+                    <form id="logout-admin-form" action="{{ route('admins.logout') }}" method="POST">
+                        @csrf
+                    </form>
                     @else
-                    <div id="top-bar-right">
+                        @if(!Auth::guard('web')->check())
+                        <a href="{{ route('login') }}" id="auth-text-login">ログイン</a>
+                        <a href="{{ route('register') }}" id="auth-text-register">登録</a>
+                        @else
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" id="auth-text">ログアウト</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                         </form>
-                    </div>
+                        @endif
                     @endif
+                    </div>
                 </div>
             </v-app-bar>
             <v-main>

@@ -11367,6 +11367,15 @@ a:hover {
   color: white;
 }
 
+#vue-app #top-bar-wrap #top-bar-right #auth-text-login {
+  color: white;
+}
+
+#vue-app #top-bar-wrap #top-bar-right #auth-text-register {
+  margin-left: 10px;
+  color: white;
+}
+
 #vue-app #main-wrap {
   background: white;
   max-width: 700px;
@@ -11376,6 +11385,7 @@ a:hover {
 #vue-app #footer-wrap {
   max-width: 700px;
   text-align: center;
+  margin-bottom: 56px;
 }
 
 #vue-app #footer-wrap .footer-text {

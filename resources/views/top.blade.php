@@ -13,7 +13,7 @@
 
 @section('main')
 <div id="top-image-wrap">
-    <img src="{{ asset('images/top.jpg') }}" alt="top_icon" id="top-image">
+    <img src="{{ asset('images/top.jpg') }}" alt="トップの画像" id="top-image">
 </div>
 <h2 id="top-title">ネット無料教材収集サービス</h2>
 <div id="search-wrap">

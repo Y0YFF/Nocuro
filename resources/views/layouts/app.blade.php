@@ -31,7 +31,6 @@
 
 <!-- Styles -->
 <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
-<noscript><link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}"></noscript>
 <link rel="preload" href="{{ url('/vendor/mckenziearts/laravel-notify/css/notify.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ url('/vendor/mckenziearts/laravel-notify/css/notify.css') }}"></noscript>
 </head>

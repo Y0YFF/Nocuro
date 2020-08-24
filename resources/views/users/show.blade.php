@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('title')
-ユーザーページ | {{ config('app.name') }}-ネット無料教材収集サービス-
+{{ $user->account_id }} | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
 @section('meta')
 <meta property="og:url" content="{{ route('users.show', $user) }}"/>
-<meta property="og:title" content="{{ $user->name }} | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
+<meta property="og:title" content="{{ $user->account_id }} | {{ config('app.name') }}-ネット無料教材収集サービス-"/>
 @endsection
 
 @section('main')
 <div id="user-header-wrap">
-    <div id="name-wrap">
+    <h1 id="name-wrap">
         <span id="name-text">{{ $user->name }}</span>
-    </div>
+    </h1>
     <div id="account-id-wrap">
         <span id="account-id-text">{{ '@' . $user->account_id }}</span>
     </div>

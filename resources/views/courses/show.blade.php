@@ -14,9 +14,9 @@
     <div id="course-date-wrap">
         {{ $course->created_at }}
     </div>
-    <div id="course-title-wrap">
+    <h1 id="course-title-wrap">
         <a href="{{ $course->link }}" id="course-title-text">{{ $course->title }}</a>
-    </div>
+    </h1>
     <div id="course-tag-wrap">
         @foreach($course->tags as $tag)
         <a href="{{ route('courses.index') }}?tag={{ $tag->name }}">#{{ $tag->name }}</a>

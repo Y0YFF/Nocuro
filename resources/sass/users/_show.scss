@@ -1,8 +1,11 @@
 
 #user-header-wrap {
   #name-wrap {
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 0;
     #name-text {
-      font-size: 20px;
+      font-size: inherit;
       font-weight: 700;
     }
   }

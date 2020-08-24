@@ -11027,6 +11027,8 @@ a.text-dark:focus {
   height: 40px;
   font-size: 25px;
   font-weight: 700;
+  margin-bottom: 0;
+  line-height: inherit;
 }
 
 #course-header #course-title-wrap #course-title-text {
@@ -11130,8 +11132,14 @@ a.text-dark:focus {
   display: block;
 }
 
-#user-header-wrap #name-wrap #name-text {
+#user-header-wrap #name-wrap {
+  height: 30px;
   font-size: 20px;
+  margin-bottom: 0;
+}
+
+#user-header-wrap #name-wrap #name-text {
+  font-size: inherit;
   font-weight: 700;
 }
 

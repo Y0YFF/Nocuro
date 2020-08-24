@@ -42,7 +42,7 @@
                 <div class="mx-auto w-100" id="top-bar-wrap">
                     <a href="{{ route('top') }}" id="top-bar-left">
                         <h1 id="site-title">Nocuro</h1>
-                        <h2 id="site-sub-title">(ノクロ)</h2>
+                        <span id="site-sub-title">(ノクロ)</span>
                     </a>
                     <div id="top-bar-right">
                     @if(Auth::guard('admin')->check())

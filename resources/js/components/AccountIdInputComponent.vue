@@ -1,8 +1,8 @@
 <template>
     <div>
         <v-text-field label="アカウントID" :placeholder="placeholderText" :rules="accountIdRules" v-model="accountId" name="account_id"></v-text-field>
-        <div v-if="validationErrors.accountId" class="errors-wrap">
-            <span v-for="error in validationErrors.accountId" :key="error.id" class="error-text">
+        <div v-if="validationErrors.account_id" class="errors-wrap">
+            <span v-for="error in validationErrors.account_id" :key="error.id" class="error-text">
                 {{ error }}
             </span>
         </div>

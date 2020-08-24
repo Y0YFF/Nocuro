@@ -4,6 +4,10 @@
 404エラー | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
+@section('meta')
+<meta name=”robots” content=”noindex”/>
+@endsection
+
 @section('message_title')
 404エラー
 @endsection

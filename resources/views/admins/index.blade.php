@@ -4,6 +4,10 @@
 管理者ページ | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
+@section('meta')
+<meta name=”robots” content=”noindex”/>
+@endsection
+
 @section('main')
 <div id="popular-courses-title-wrap">
     <div id="form-title-text">人気のコース</div>

@@ -4,6 +4,10 @@
 管理者ログイン | {{ config('app.name') }}-ネット無料教材収集サービス-
 @endsection
 
+@section('meta')
+<meta name=”robots” content=”noindex”/>
+@endsection
+
 @section('main')
 <div id="form-title-wrap" style="padding-bottom:5px;border-bottom:1px solid #aaa;">
     <span id="form-title-text" style="font-weight:600;">ログイン</span>

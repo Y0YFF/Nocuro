@@ -7,7 +7,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import Vuetify from 'vuetify';
+import Vuetify, {
+    VCard, VBtn, VIcon, VTextField, VApp, 
+    VAppBar, VMain, VFooter, VBottomNavigation, 
+    VProgressLinear, VDialog 
+} from 'vuetify/lib';
 import 'vuetify/dist/vuetify.min.css';
 Vue.use(Vuetify);
 
@@ -22,13 +26,13 @@ Vue.use(Vuetify);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('lessons-form', require('./components/LessonsFormComponent.vue').default);
-Vue.component('lessons', require('./components/LessonsComponent.vue').default);
-Vue.component('name-input', require('./components/NameInputComponent.vue').default);
-Vue.component('email-input', require('./components/EmailInputComponent.vue').default);
-Vue.component('account-id-input', require('./components/AccountIdInputComponent.vue').default);
-Vue.component('password-input', require('./components/PasswordInputComponent.vue').default);
-Vue.component('password-confirmation-input', require('./components/PasswordConfirmationInputComponent.vue').default);
+import LessonsForm from './components/LessonsFormComponent.vue';
+import Lessons from './components/LessonsComponent.vue';
+import NameInput from './components/NameInputComponent.vue';
+import EmailInput from './components/EmailInputComponent.vue';
+import AccountIdInput from './components/AccountIdInputComponent.vue';
+import PasswordInput from './components/PasswordInputComponent.vue';
+import PasswordConfirmationInput from './components/PasswordConfirmationInputComponent.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,5 +42,14 @@ Vue.component('password-confirmation-input', require('./components/PasswordConfi
 
 const app = new Vue({
     el: '#app',
-    vuetify: new Vuetify()
+    vuetify: new Vuetify(),
+    components: {
+        VCard, VBtn, VIcon, VTextField, VApp, 
+        VAppBar, VMain, VFooter, VBottomNavigation, 
+        VProgressLinear, VDialog,
+        Lessons, LessonsForm, 
+        NameInput, EmailInput, 
+        AccountIdInput, PasswordInput, 
+        PasswordConfirmationInput, 
+    }
 });

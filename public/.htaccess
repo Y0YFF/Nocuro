@@ -32,6 +32,10 @@
         ForceType application/x-javascript
         AddEncoding x-gzip .gz
     </FilesMatch>
+    <FilesMatch "\.icon\.gz$">
+        ForceType image/x-icon
+        AddEncoding x-gzip .gz
+    </FilesMatch>
 
     Header append Vary Accept-Encoding env=!dont-vary
 </IfModule>

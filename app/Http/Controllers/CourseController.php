@@ -18,8 +18,6 @@ class CourseController extends Controller
         $this->middleware('auth:admin')->only(['create', 'store', 'edit', 'delete']);
 
         $this->middleware('auth:web')->only(['bookmark']);
-
-        return;
     }
 
     public function index(Request $request, Course $course)

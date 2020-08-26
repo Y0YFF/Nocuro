@@ -22,24 +22,16 @@ class CourseController extends Controller
 
     public function index(Request $request, Course $course)
     {
-        $word = $request->get('query');
-        $tag = $request->get('tag');
+        $word = $request->query('query');
+        $tag = $request->query('tag');
 
-        if ($request->has('query')) {
-            
-            $courses = $course
-            ->where('title', 'like', '%'.$word.'%')
-            ->paginate(15);
-
-        } elseif ($request->has('tag')) {
-
-            $courses = $course->withAnyTag($tag)->paginate(15);
-
-        } else {
-
-            $courses = $course->paginate(15);
-
-        }
+        $word_flag = $request->has('query');
+        $tag_flag = $request->has('tag');
+        
+        $courses = $course
+        ->searchByWord($word_flag, $word)
+        ->searchByTag($tag_flag, $tag)
+        ->paginate(15);
 
         return view('courses.index', compact('courses'));
     }

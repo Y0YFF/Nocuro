@@ -60,4 +60,18 @@ class Course extends Model
 
     }
 
+    public function scopeSearchByWord($query, $flag, $word)
+    {
+        return $query->when($flag, function ($returnQuery) use ($word) {
+            return $returnQuery->where('title', 'like', '%'. $word .'%');
+        });
+    }
+
+    public function scopeSearchByTag($query, $flag, $tag)
+    {
+        return $query->when($flag, function ($returnQuery) use ($tag) {
+            return $returnQuery->withAnyTag($tag);
+        });
+    }
+
 }

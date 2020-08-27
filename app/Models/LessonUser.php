@@ -13,4 +13,10 @@ class LessonUser extends Model
     ];
 
     protected $table = 'lesson_user';
+
+    public function scopeUserHasCheckedLessonsOnCourse($query, $course_id, $user_id)
+    {
+        return $query->where('course_id', $course_id)
+            ->where('user_id', $user_id);
+    }
 }

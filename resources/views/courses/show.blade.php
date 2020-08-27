@@ -64,7 +64,7 @@
     </v-card>
     @endforeach
     @else
-    <lessons :lessons="{{ $lessons }}" :auth-id="{{ Auth::guard('web')->id() }}" :course-id="{{ json_encode($course->id) }}" :checked-count="{{ $checkedCount }}"></lessons>
+    <lessons :lessons="{{ $lessons }}" :auth-id="{{ Auth::guard('web')->id() }}" :course-id="{{ json_encode($course->id) }}" :checked-count="{{ $checked_count }}"></lessons>
     @endif
 </div>
 @endsection

@@ -10,4 +10,11 @@ class Bookmark extends Model
         'course_id', 
         'user_id',
     ];
+
+    public function scopeUserHasBookmarkOnCourse($query, $course_id, $user_id)
+    {
+        return $query->where('course_id', $course_id)
+        ->where('user_id', $user_id);
+    }
+
 }

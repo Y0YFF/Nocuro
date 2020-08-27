@@ -9,6 +9,7 @@ use App\Models\Lesson;
 use App\Models\Bookmark;
 use App\Models\LessonUser;
 use App\Models\CourseUser;
+use App\Services\CourseService;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -27,7 +28,7 @@ class CourseController extends Controller
 
         $word_flag = $request->has('query');
         $tag_flag = $request->has('tag');
-        
+
         $courses = $course
         ->searchByWord($word_flag, $word)
         ->searchByTag($tag_flag, $tag)
@@ -36,67 +37,27 @@ class CourseController extends Controller
         return view('courses.index', compact('courses'));
     }
 
-    public function show(Course $course)
+    public function show(Course $course, CourseService $courseService, Bookmark $bookmark, LessonUser $lessonUser)
     {
         $course->load(['tagged', 'lessons']);
 
-        $lessons = [];
-        $checkedCount = 0;
+        $web_auth_flag = Auth::guard('web')->check();
 
-        if (Auth::guard('web')->check()) {
+        $web_auth_id = $web_auth_flag ? Auth::guard('web')->id() : null;
 
-            $bookmark = Bookmark::where('course_id', $course->id)
-            ->where('user_id', Auth::guard('web')->id())
-            ->first();
+        $bookmark_flag = $web_auth_flag ? $courseService->getBookmarkFlag($course->id, $web_auth_id, $bookmark) : false; 
 
-            if ($bookmark) {
-                $bookmark_flag = true;
-            } else {
-                $bookmark_flag = false;
-            }
+        $checked_lessons_asso_array = $web_auth_flag ? $courseService->getCheckedLessonsAssociativeArray($course->id, $web_auth_id, $lessonUser) : [];
 
-            $lessons_array = LessonUser::where('course_id', $course->id)
-            ->where('user_id', Auth::guard('web')->id())
-            ->orderBy('lesson_id', 'asc')
-            ->get('lesson_id')
-            ->toArray();
+        $checked_lessons_array = $courseService->getCheckedLessonsArray($checked_lessons_asso_array);
 
-            $checkedLessons = [];
+        $checked_count = $web_auth_flag ? $courseService->getCheckCount($checked_lessons_array) : 0;
 
-            foreach($lessons_array as $lesson_array) {
-                $checkedLessons[] = $lesson_array['lesson_id'];
-            }
+        $lessons_array = $web_auth_flag ? $courseService->getLessons($checked_lessons_array, $course->lessons) : [];
 
-            foreach($course->lessons as $lesson) {
+        $lessons = json_encode($lessons_array);
 
-                if (in_array($lesson->id, $checkedLessons)) {
-
-                    $checked_flag = true;
-                    $checkedCount++;
-                    
-                } else {
-
-                    $checked_flag = false;
-
-                }
-
-                $lesson = [
-                    'id' => $lesson->id,
-                    'title' => $lesson->title,
-                    'link' => $lesson->link,
-                    'checked' => $checked_flag,
-                ];
-
-                $lessons[] = $lesson;
-            }
-
-        } else {
-            $bookmark_flag = false;
-        }
-
-        $lessons = json_encode($lessons);
-
-        return view('courses.show', compact('course', 'bookmark_flag', 'lessons', 'checkedCount'));
+        return view('courses.show', compact('course', 'bookmark_flag', 'lessons', 'checked_count'));
     }
 
     public function create()

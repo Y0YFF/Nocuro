@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Logout;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Admin\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -66,13 +66,8 @@ class LoginController extends Controller
         return view('auth.admins.login');
     }
 
-    public function adminLogin(Request $request)
+    public function adminLogin(LoginRequest $request)
     {
-        $this->validate($request, [
-            'account_id'   => ['required', 'string', 'between:2,20'],
-            'password' => ['required', 'min:6']
-        ]);
-
         if (Auth::guard('admin')->attempt(['account_id' => $request->account_id, 'password' => $request->password])) {
 
             return redirect()->route('admins.index');

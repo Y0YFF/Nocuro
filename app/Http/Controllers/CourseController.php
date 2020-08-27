@@ -67,7 +67,7 @@ class CourseController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $tags = explode(',', $request->tags);
+        $tags = $request->divideTagToArray();
 
         $course = Course::create([
             'title' => $request->course_title,
@@ -76,18 +76,9 @@ class CourseController extends Controller
 
         $course->tag($tags);
 
-        $lessons = [];
+        $lessons_array = $request->getLessonsArray();
 
-        for ($i=0; $i < count($request->lesson_title) ; $i++) { 
-            $lesson = [
-                'title' => $request->lesson_title[$i],
-                'link' => $request->lesson_link[$i]
-            ];
-
-            array_push($lessons, $lesson);
-        }
-
-        $course->lessons()->createMany($lessons);
+        $course->lessons()->createMany($lessons_array);
 
         notify()->success('コースを作成しました', '成功');
 

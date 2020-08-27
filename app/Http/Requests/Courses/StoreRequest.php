@@ -31,4 +31,31 @@ class StoreRequest extends FormRequest
             'lesson_link.*' => ['required', 'string', 'min:7'],
         ];
     }
+
+    public function divideTagToArray()
+    {
+        return explode(',', $this->tags);   
+    }
+
+    public function getLessonsArray()
+    {
+        $lessons_count = count($this->lesson_title);
+
+        $lessons_array = [];
+
+        for ($i=0; $i < $lessons_count ; $i++) { 
+            $lesson_array = [
+                'title' => $this->lesson_title[$i],
+                'link' => $this->lesson_link[$i]
+            ];
+
+            array_push($lessons_array, $lesson_array);
+        }
+
+        return $lessons_array;
+
+        
+
+
+    }
 }

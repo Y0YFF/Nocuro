@@ -22,15 +22,7 @@ class SocialAccountService
 
             $findUser = User::where('account_id', $providerUser->getNickname())->first();
 
-            if (!$findUser) {
-
-                $account_id = $providerUser->getNickname();
-
-            } else {
-
-                $account_id = uniqid();
-
-            }
+            $account_id = empty($findUser) ? $providerUser->getNickname() : uniqid();
 
             if (!$providerUser->getEmail()) {
 

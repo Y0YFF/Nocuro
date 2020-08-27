@@ -6,10 +6,11 @@ use App\Models\CourseUser;
 use Illuminate\Http\Request;
 use App\Models\LessonUser;
 use App\Models\User;
+use App\Services\LessonService;
 
 class LessonController extends Controller
 {
-    public function check(Request $request, $lesson_id)
+    public function check(Request $request, $lesson_id, User $userModel, LessonUser $lessonUserModel, CourseUser $courseUserModel, LessonService $lessonService)
     {
         $auth_id = $request->authId;
         $course_id = $request->courseId;
@@ -17,65 +18,17 @@ class LessonController extends Controller
         $before_progress = $request->beforeProgress;
         $after_progress = $request->afterProgress;
 
-        $user = User::where('id', $auth_id)->first();
+        $user = $userModel->where('id', $auth_id)->first();
 
-        $lesson = LessonUser::where('user_id', $auth_id)
-        ->where('lesson_id', $lesson_id)
-        ->first();
+        $lesson = $lessonUserModel->userHasLessonOnLessonUser($auth_id, $lesson_id)->first();
 
-        $course_user = CourseUser::where('user_id', $auth_id)
-        ->where('course_id', $course_id)
-        ->first();
+        $course_user = $courseUserModel->userHasCourseOnCourseUser($auth_id, $course_id)->first();
 
-        if ($before_progress === 100) {
+        $lessonService->updateCompletedCourseCount($before_progress, $after_progress, $user);
 
-            $completed_course_count = $user->userinfo->completed_course_count - 1;
+        $lessonService->updateOrCreate($course_user, $checked_count, $auth_id, $course_id);
 
-            $user->userinfo->fill([
-                'completed_course_count' => $completed_course_count,
-            ])->save();
-
-        }
-
-        if ($after_progress === 100) {
-
-            $completed_course_count = $user->userinfo->completed_course_count + 1;
-
-            $user->userinfo->fill([
-                'completed_course_count' => $completed_course_count,
-            ])->save();
-            
-        }
-
-        if ($course_user) {
-
-            $course_user->fill([
-                'checked_count' => $checked_count
-            ])->save();
-
-        } else {
-
-            CourseUser::create([
-                'user_id' => $auth_id,
-                'course_id' => $course_id,
-                'checked_count' => $checked_count,
-            ]);
-
-        }
-
-        if ($lesson) {
-
-            $lesson->delete();
-
-        } else {
-
-            LessonUser::create([
-                'course_id' => $course_id,
-                'lesson_id' => $lesson_id,
-                'user_id' => $auth_id
-            ]);
-            
-        }
+        $lessonService->deleteOrCreateCheckedLesson($lesson, $course_id, $lesson_id, $auth_id);
 
         return response('check sucessful!', 200);
 

@@ -14,4 +14,9 @@ class CourseUser extends Model
     ];
 
     protected $table = 'course_user';
+
+    public function scopeUserHasCourseOnCourseUser($query, $web_auth_id, $course_id)
+    {
+        return $query->where('user_id', $web_auth_id)->where('course_id', $course_id);
+    }
 }

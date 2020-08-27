@@ -34,23 +34,20 @@ class SocialAccountController extends Controller
             'twitter'
         );
 
-        try {
+        if ($authUser) {
 
             auth()->guard('web')->login($authUser, true);
 
-        } catch (\Exception $e) {
+            notify()->success('ログインしました', '成功');
+
+            return redirect()->route('courses.index');
+            
+        } else {
 
             notify()->error('ログインに失敗しました', '失敗');
-                
-            return redirect()
-                ->route('login');
-            
+
+            return redirect()->route('login');
+
         }
-
-        notify()->success('ログインしました', '成功');
-
-        return redirect()
-            ->route('courses.index');
-
     }
 }

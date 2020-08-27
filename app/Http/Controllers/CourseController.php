@@ -107,45 +107,15 @@ class CourseController extends Controller
         return redirect()->route('courses.index');
     }
 
-    public function bookmark(Request $request, Course $course)
+    public function bookmark(Course $course, CourseService $courseService)
     {
-        $bookmark = Bookmark::where('course_id', $course->id)
-        ->where('user_id', Auth::guard('web')->id())
-        ->first();
+        $bookmark = Bookmark::userHasBookmarkOnCourse($course->id, Auth::guard('web')->id())->first();
 
-        if ($bookmark) {
+        $message = !empty($bookmark) ? $courseService->deleteBookmark($bookmark, $course) : $courseService->createBookmark(Auth::guard('web')->id(), $course);
 
-            $bookmark->delete();
+        notify()->success($message, '成功');
 
-            $bookmark_count = $course->bookmark_count - 1;
-
-            $course->fill([
-                'bookmark_count' => $bookmark_count
-            ])->save();
-
-            notify()->success('お気に入りを削除しました', '成功');
-
-            return redirect()->route('courses.show', $course);
-            
-
-        } else {
-
-            Bookmark::create([
-                'course_id' => $course->id,
-                'user_id' => Auth::guard('web')->id(),
-            ]);
-
-            $bookmark_count = $course->bookmark_count + 1;
-
-            $course->fill([
-                'bookmark_count' => $bookmark_count
-            ])->save();
-
-            notify()->success('お気に入りに追加しました', '成功');
-
-            return redirect()->route('courses.show', $course);
-
-        }
+        return redirect()->route('courses.show', $course);
 
     }
 }

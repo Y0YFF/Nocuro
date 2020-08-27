@@ -74,4 +74,38 @@ class CourseService
 		return $lessons_array;
 	}
 
+	function deleteBookmark($bookmark, $course)
+	{
+		$bookmark->delete();
+
+		$bookmark_count = $course->bookmark_count - 1;
+
+		$course->fill([
+			'bookmark_count' => $bookmark_count
+		])->save();
+
+		$message = 'お気に入りを削除しました';
+
+		return $message;
+	}
+
+	function createBookmark($web_auth_id, $course)
+	{
+		Bookmark::create([
+			'course_id' => $course->id,
+			'user_id' => $web_auth_id,
+		]);
+
+		$bookmark_count = $course->bookmark_count + 1;
+
+		$course->fill([
+			'bookmark_count' => $bookmark_count
+		])->save();
+
+		$message = 'お気に入りに追加しました';
+
+		return $message;
+
+	}
+
 }

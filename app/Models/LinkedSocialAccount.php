@@ -16,4 +16,11 @@ class LinkedSocialAccount extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function scopeAppHasAccountOnProvider($query, $provider_name, $provider_id)
+    {
+        return $query
+        ->where('provider_name', $provider_name)
+        ->where('provider_id', $provider_id);
+    }
 }

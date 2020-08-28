@@ -10,9 +10,7 @@ class SocialAccountService
 {
     public function findOrCreate(ProviderUser $providerUser, $providerName)
     {
-        $account = LinkedSocialAccount::where('provider_name', $providerName)
-            ->where('provider_id', $providerUser->getId())
-            ->first();
+        $account = LinkedSocialAccount::appHasAccountOnProvider($providerName, $providerUser->getId())->first();
         
         if ($account) {
 

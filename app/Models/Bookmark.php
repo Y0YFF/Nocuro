@@ -11,6 +11,11 @@ class Bookmark extends Model
         'user_id',
     ];
 
+    protected $casts = [
+        'course_id'       => 'int',
+        'user_id' => 'int',
+    ];
+
     public function scopeUserHasBookmarkOnCourse($query, $course_id, $user_id)
     {
         return $query->where('course_id', $course_id)

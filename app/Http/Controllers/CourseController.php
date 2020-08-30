@@ -49,11 +49,11 @@ class CourseController extends Controller
 
         $checked_lessons_asso_array = $web_auth_flag ? $courseService->getCheckedLessonsAssociativeArray($course->id, $web_auth_id, $lessonUser) : [];
 
-        $checked_lessons_array = $courseService->getCheckedLessonsArray($checked_lessons_asso_array);
+        $checked_lessons_array = $courseService->getCheckedLessonsIdArray($checked_lessons_asso_array);
 
-        $checked_count = $web_auth_flag ? $courseService->getCheckCount($checked_lessons_array) : 0;
+        $checked_count = $web_auth_flag ? $courseService->getCheckedCount($checked_lessons_array) : 0;
 
-        $lessons_array = $web_auth_flag ? $courseService->getLessons($checked_lessons_array, $course->lessons) : [];
+        $lessons_array = $web_auth_flag ? $courseService->getLessonsArray($checked_lessons_array, $course->lessons) : [];
 
         $lessons = json_encode($lessons_array);
 

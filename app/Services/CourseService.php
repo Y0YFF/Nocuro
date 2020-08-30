@@ -29,23 +29,23 @@ class CourseService
 
 	}
 
-	function getCheckCount($checked_lessons)
+	function getCheckedCount($checked_lessons)
 	{
 		return count($checked_lessons);
 	}
 
-	function getCheckedLessonsArray($associative_array)
+	function getCheckedLessonsIdArray($associative_array)
 	{
-		$checked_lessons_array = [];
+		$checked_lessons_id_array = [];
 
 		foreach($associative_array as $lesson_array) {
-			$checked_lessons_array[] = $lesson_array['lesson_id'];
+			$checked_lessons_id_array[] = $lesson_array['lesson_id'];
 		}
 
-		return $checked_lessons_array;
+		return $checked_lessons_id_array;
 	}
 
-	function getLessons($checked_lessons, $lessonsCollection)
+	function getLessonsArray($checked_lessons, $lessonsCollection)
 	{
 		$lessons_array = [];
 

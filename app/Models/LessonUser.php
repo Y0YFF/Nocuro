@@ -16,8 +16,7 @@ class LessonUser extends Model
 
     public function scopeUserHasCheckedLessonsOnCourse($query, $course_id, $user_id)
     {
-        return $query->where('course_id', $course_id)
-            ->where('user_id', $user_id);
+        return $query->where('course_id', $course_id)->where('user_id', $user_id);
     }
 
     public function scopeUserHasLessonOnLessonUser($query, $web_auth_id, $lesson_id)

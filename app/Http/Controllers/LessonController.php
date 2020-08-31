@@ -20,7 +20,7 @@ class LessonController extends Controller
 
         $user = $userModel->where('id', $auth_id)->first();
 
-        $lesson = $lessonUserModel->userHasLessonOnLessonUser($auth_id, $lesson_id)->first();
+        $lessonUser = $lessonUserModel->userHasLessonOnLessonUser($auth_id, $lesson_id)->first();
 
         $course_user = $courseUserModel->userHasCourseOnCourseUser($auth_id, $course_id)->first();
 
@@ -28,7 +28,7 @@ class LessonController extends Controller
 
         $lessonService->updateOrCreate($course_user, $checked_count, $auth_id, $course_id);
 
-        $lessonService->deleteOrCreateCheckedLesson($lesson, $course_id, $lesson_id, $auth_id);
+        $lessonService->deleteOrCreateCheckedLesson($lessonUser, $course_id, $lesson_id, $auth_id);
 
         return response('check sucessful!', 200);
 

@@ -11,20 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    $popular_courses = App\Models\PopularCourse::all();
-
-    return view('top', compact('popular_courses'));
-
-})->name('top');
-
-Route::get('/trm', function () {
-    return view('trm');
-})->name('trm');
-
-Route::get('/pvy', function () {
-    return view('pvy');
-})->name('pvy');
+Route::get('/', 'TopController')->name('top');
+Route::get('/trm', 'TrmController')->name('trm');
+Route::get('/pvy','PvyController')->name('pvy');
 
 Route::get('/courses', 'CourseController@index')->name('courses.index');
 Route::get('/courses/{course}', 'CourseController@show')->name('courses.show');

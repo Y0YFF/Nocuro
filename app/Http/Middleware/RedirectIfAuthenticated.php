@@ -19,10 +19,16 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if ($guard == "admin" && Auth::guard($guard)->check()) {
+
+            notify()->success('すでに管理者ログインしています', '管理者ログイン済');
+            
             return redirect(route('admins.index'));
         }
 
         if (Auth::guard($guard)->check()) {
+
+            notify()->success('すでにログインしています', 'ログイン済');
+
             return redirect(RouteServiceProvider::HOME);
         }
 

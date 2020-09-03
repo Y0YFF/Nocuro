@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Lesson::class, function (Faker $faker) {
     return [
-        'course_id' => $faker->randomDigit,
+        'course_id' => $faker->uuid,
         'title' => $faker->sentence,
         'link' => $faker->url,
     ];

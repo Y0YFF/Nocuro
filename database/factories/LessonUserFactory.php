@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(LessonUser::class, function (Faker $faker) {
     return [
         'lesson_id' => $faker->randomDigit,
-        'course_id' => $faker->randomDigit,
+        'course_id' => $faker->uuid,
         'user_id' => $faker->randomDigit,
      ];
 });

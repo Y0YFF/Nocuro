@@ -60,7 +60,7 @@ class Handler extends ExceptionHandler
             return response()->json(['message' => $exception->getMessage()], 401);
         }
 
-        if ($request->is('admin') || $request->is('admin/*') || $request->is('courses/create') || $request->is('courses/*/edit')) {
+        if ($request->is('admin') || $request->is('admin/*') || $request->is('courses/create') || $request->is('courses/*/edit') || ($request->is('courses') && $request->isMethod('POST')) || ($request->is('courses/*') && $request->isMethod('DELETE'))) {
             return redirect()->guest(route('admins.login'));
         }
 

@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
             return redirect(route('admins.index'));
         }
 
-        if (Auth::guard($guard)->check()) {
+        if ($guard == "web" && Auth::guard($guard)->check()) {
 
             notify()->success('すでにログインしています', 'ログイン済');
 

@@ -38,8 +38,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:web')->except('logout');
-        $this->middleware('guest:admin')->except('adminLogout');
+        $this->middleware('guest:web')->only(['showLoginForm', 'login', 'adminLogin']);
+        $this->middleware('guest:admin')->only(['showAdminLoginForm', 'adminLogin']);
 
     }
 

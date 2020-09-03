@@ -1,19 +1,19 @@
 <?php
 
-namespace Tests\Feature\Controller;
+namespace Tests\Feature\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class PvyControllerTest extends TestCase
+class TrmControllerTest extends TestCase
 {
     /**
      * @test
      */
-    public function プライバシーポリシーページにアクセスしたら表示する()
+    public function 利用規約ページにアクセスしたら表示する()
     {
-        $url = route('pvy');
+        $url = route('trm');
 
         $response = $this->get($url);
 

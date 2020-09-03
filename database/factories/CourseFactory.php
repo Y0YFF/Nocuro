@@ -9,6 +9,6 @@ $factory->define(Course::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
         'link' => $faker->url,
-        'bookmark_count' => $faker->randomDigit,
+        'bookmark_count' => $faker->numberBetween(0, 1000),
     ];
 });

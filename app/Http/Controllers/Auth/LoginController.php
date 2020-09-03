@@ -38,7 +38,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:web')->except('logout');
         $this->middleware('guest:admin')->except('adminLogout');
 
     }
@@ -97,12 +97,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         notify()->success('ログインしました', '成功');
-        
-        if (session()->has('url.intended')) {
-            return redirect(session('url.intended'));
-        }
 
-        return redirect()
-            ->route('courses.index');
+        return redirect()->route('courses.index');
     }
 }

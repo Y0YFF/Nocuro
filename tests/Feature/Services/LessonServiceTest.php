@@ -98,7 +98,7 @@ class LessonServiceTest extends TestCase
 
         $web_auth_id = $this->faker->randomDigit;
 
-        $course_id = $this->faker->randomDigit;
+        $course_id = $this->faker->uuid;
 
         $this->lesson_service->updateOrCreate($course_user, $checked_count, $web_auth_id, $course_id);
 
@@ -118,7 +118,7 @@ class LessonServiceTest extends TestCase
     {
         $lessonUser = factory(LessonUser::class)->create();
 
-        $course_id = $this->faker->randomDigit;
+        $course_id = $this->faker->uuid;
 
         $lesson_id = $this->faker->randomDigit;
 
@@ -136,7 +136,7 @@ class LessonServiceTest extends TestCase
     {
         $lessonUser = null;
 
-        $course_id = $this->faker->randomDigit;
+        $course_id = $this->faker->uuid;
 
         $lesson_id = $this->faker->randomDigit;
 

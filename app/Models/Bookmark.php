@@ -12,7 +12,6 @@ class Bookmark extends Model
     ];
 
     protected $casts = [
-        'course_id'       => 'int',
         'user_id' => 'int',
     ];
 

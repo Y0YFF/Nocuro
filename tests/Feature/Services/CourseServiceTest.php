@@ -161,7 +161,7 @@ class CourseServiceTest extends TestCase
      */
     public function ブックマークの削除()
     {
-        $bookmark_count = $this->faker->randomDigit;
+        $bookmark_count = $this->faker->numberBetween(0, 1000);
 
         $course = factory(Course::class)->create([
             'bookmark_count' => $bookmark_count
@@ -185,7 +185,7 @@ class CourseServiceTest extends TestCase
      */
     public function ブックマークの追加()
     {
-        $bookmark_count = $this->faker->randomDigit;
+        $bookmark_count = $this->faker->numberBetween(0, 1000);
 
         $course = factory(Course::class)->create([
             'bookmark_count' => $bookmark_count,

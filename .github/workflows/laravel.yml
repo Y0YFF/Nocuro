@@ -50,4 +50,8 @@ jobs:
       - name: migrate
         run: php artisan migrate
       - name: unit test
+        env:
+          TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
+          TWITTER_CLIENT_SECRET: ${{ secrets.TWITTER_CLIENT_SECRET }}
+          TWITTER_REDIRECT_URL: ${{ secrets.TWITTER_REDIRECT_URL }}
         run: ./vendor/bin/phpunit

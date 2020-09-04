@@ -2,9 +2,8 @@ name: UnitTest
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   laravel_test:
@@ -44,6 +43,8 @@ jobs:
         run: composer install -n --prefer-dist
       - name: composer dump autoload
         run: composer dump-autoload
+      - name: copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"  
       - name: generate key
         run: php artisan key:generate --env=testing
       - name: migrate

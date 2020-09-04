@@ -43,7 +43,7 @@ jobs:
         run: composer install -n --prefer-dist
       - name: composer dump autoload
         run: composer dump-autoload
-      - name: Copy .env
+      - name: copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"  
       - name: generate key
         run: php artisan key:generate --env=testing

@@ -83,7 +83,7 @@
             </v-footer>
             <v-bottom-navigation background-color="#009688" grow id="navigation-wrap" fixed>
                 <v-btn href="{{ route('courses.index') }}" class="nav-button">
-                    <span class="nav-button-text">ホーム</span>
+                    <span class="nav-button-text">コース一覧</span>
                     <v-icon class="nav-button-icon">fas fa-home</v-icon>
                 </v-btn>
                 @if(Auth::guard('web')->check())

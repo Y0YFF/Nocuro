@@ -32,6 +32,7 @@ class CourseController extends Controller
         $courses = $course
         ->searchByWord($word_flag, $word)
         ->searchByTag($tag_flag, $tag)
+        ->orderBy('bookmark_count', 'desc')
         ->paginate(15);
 
         return view('courses.index', compact('courses'));
